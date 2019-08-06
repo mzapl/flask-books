@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<h1>Currently you are not logged in. Please:</h1>
+<h1>LOG IN</h1>
+<form action="{{ url_for('login') }}", method="post">
+    <input type="text" name="login">
+    <input type="password" name="password">
+    <button type="submit">Log in</button>
+</form>
+
+<h1>OR REGISTER</h1>
+<form action="{{ url_for('register') }}", method="post">
+    <input type="text" name="login">
+    <input type="password" name="password">
+    <button type="submit">Register</button>
+</form>
+
+{% if error == 'duplicate_user'%}
+<div class="alert alert-danger" role="alert">
+  Username {{ user_login }} is already taken! Try again.
+</div>
+
+{% elif error == 'no_user'%}
+<div class="alert alert-danger" role="alert">
+  There is no user with this name!
+</div>
+
+{% elif error == 'wrong_password'%}
+<div class="alert alert-danger" role="alert">
+  Wrong password!
+</div>
+
+{% endif %}
+
+</body>
+</html>

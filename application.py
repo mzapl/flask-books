@@ -14,7 +14,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
 #SQL CONFIGURATION
-engine = create_engine('postgresql://postgres:651596XY@localhost:5432/userdata')
+engine = create_engine('postgresql://postgres:PASSWORDHERE@localhost:5432/userdata')
 db = scoped_session(sessionmaker(bind=engine))
 
 
